@@ -1,22 +1,16 @@
-# This workflow enables developers to call PR-Agents `/[actions]` in PR's comments and upon PR creation. 
-# Learn more at https://www.codium.ai/pr-agent/
-# This is v0.2 of this workflow file
-
-name: PR-Agent
-
 on:
-# pull_request:
-# issue_comment:
-  workflow_dispatch:
-
-permissions:
-  issues: write
-  pull-requests: write
-
+  pull_request:
+    types: [opened, reopened, ready_for_review]
+  issue_comment:
 jobs:
   pr_agent_job:
+    if: ${{ github.event.sender.type != 'Bot' }}
     runs-on: ubuntu-latest
-    name: Run pr agent on every pull request
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: write
+    name: Run pr agent on every pull request, respond to user comments
     steps:
       - name: PR Agent action step
         id: pragent
