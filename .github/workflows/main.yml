@@ -16,9 +16,7 @@ jobs:
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        continue-on-error: false
-        if: failure()
-        run: echo "PR Agent action failed. Check logs for details."
+        continue-on-error: true
       - name: Add PR describe
         uses: actions/github-script@v6
         with:
