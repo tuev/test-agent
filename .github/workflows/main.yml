@@ -34,7 +34,7 @@ jobs:
               repo: context.repo.repo,
               body: "@CodiumAI-Agent /review"
             })
-        - name: Add PR review
+      - name: Add PR review
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -45,6 +45,3 @@ jobs:
               repo: context.repo.repo,
               body: "@CodiumAI-Agent /improve"
             })
-
-
-
