@@ -19,7 +19,7 @@ jobs:
         continue-on-error: false
         if: failure()
         run: echo "PR Agent action failed. Check logs for details."
-      - name: Add PR describe
+     - name: Add PR describe
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -52,5 +52,3 @@ jobs:
               repo: context.repo.repo,
               body: "@CodiumAI-Agent /improve"
             })
-
-
