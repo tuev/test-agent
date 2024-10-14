@@ -28,6 +28,8 @@ jobs:
               repo: context.repo.repo,
               body: "@CodiumAI-Agent /describe"
             })
+      - name: Wait for 1 minute
+        run: sleep 60
       - name: Add PR review
         uses: actions/github-script@v6
         with:
@@ -39,6 +41,8 @@ jobs:
               repo: context.repo.repo,
               body: "@CodiumAI-Agent /review"
             })
+      - name: Wait for another 1 minute
+        run: sleep 60
       - name: Add PR improve
         uses: actions/github-script@v6
         with:
